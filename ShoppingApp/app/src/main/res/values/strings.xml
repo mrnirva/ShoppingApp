@@ -4,4 +4,11 @@
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
     <string name="finish">FINISH</string>
+    <string name="welcome_to_shopping_app">Welcome to Shopping App</string>
+    <string name="signin">SIGN IN</string>
+    <string name="signup">SIGN UP</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="password_again">Password Again</string>
+    <string name="username">Username</string>
 </resources>

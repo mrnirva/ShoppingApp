@@ -9,5 +9,15 @@
         android:id="@+id/onboardingFragment"
         android:name="com.shopping.app.ui.onboarding.OnboardingFragment"
         android:label="fragment_onboarding"
-        tools:layout="@layout/fragment_onboarding" />
+        tools:layout="@layout/fragment_onboarding" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_authFragment"
+            app:destination="@id/authFragment"
+            app:popUpTo="@id/nav_graph_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.shopping.app.ui.auth.AuthFragment"
+        android:label="AuthFragment" />
 </navigation>

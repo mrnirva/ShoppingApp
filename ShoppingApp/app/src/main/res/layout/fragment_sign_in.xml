@@ -6,10 +6,50 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:context=".ui.auth.SignInFragment">
+        android:layout_height="match_parent">
 
-        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginHorizontal="30dp">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="20sp"
+                android:inputType="textEmailAddress"
+                android:hint="@string/email"
+                android:background="@drawable/bg_auth_text_field"
+                android:layout_marginTop="30dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textSize="20sp"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:background="@drawable/bg_auth_text_field"
+                android:layout_marginTop="10dp"/>
+
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="@string/signin"
+                android:layout_marginTop="15dp"
+                app:backgroundTint="@null"
+                android:background="@drawable/bg_auth_button"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

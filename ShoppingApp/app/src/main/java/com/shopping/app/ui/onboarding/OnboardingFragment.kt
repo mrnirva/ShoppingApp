@@ -11,6 +11,7 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.shopping.app.R
 import com.shopping.app.databinding.FragmentOnboardingBinding
@@ -120,7 +121,7 @@ class OnboardingFragment : Fragment(), OnboardButtonListener {
     }
 
     fun nextScreen(){
-
+        findNavController().navigate(R.id.action_onboardingFragment_to_authFragment)
     }
 
 }

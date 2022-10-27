@@ -8,6 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="bg_color_main_primary">#FF6200EE</color>
-    <color name="bg_color_main_second">#FFBB86FC</color>
+    <color name="main_color">#FF6200EE</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="gray">#BEBEBE</color>
+
 </resources>

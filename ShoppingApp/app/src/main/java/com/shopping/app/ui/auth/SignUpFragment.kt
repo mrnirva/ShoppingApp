@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.shopping.app.R
-import com.shopping.app.databinding.FragmentAuthBinding
+import com.shopping.app.databinding.FragmentSignUpBinding
 
 class SignUpFragment : Fragment() {
 
-    private lateinit var bnd: FragmentAuthBinding
+    private lateinit var bnd: FragmentSignUpBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
