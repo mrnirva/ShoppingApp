@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_onboarding_button.xml" value="0.211" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/indicator_active_background.xml" value="0.211" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/indicator_inactive_background.xml" value="0.211" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/view_pager_background.xml" value="0.211" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/activity_launch.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/fragment_onboarding.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_onboarding.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

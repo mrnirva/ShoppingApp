@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Shopping App</string>
+    <string name="skip">Skip</string>
+    <string name="previous">PREVIOUS</string>
+    <string name="next">NEXT</string>
+    <string name="finish">FINISH</string>
 </resources>
