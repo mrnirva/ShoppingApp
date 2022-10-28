@@ -9,10 +9,9 @@ import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.shopping.app.R
 import com.shopping.app.data.model.DataState
+import com.shopping.app.data.model.User
 import com.shopping.app.databinding.FragmentSignInBinding
 import com.shopping.app.ui.auth.viewmodel.SignInViewModel
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
@@ -44,7 +43,7 @@ class SignInFragment : Fragment() {
 
     }
 
-    private fun handleSignIn(it: DataState<FirebaseUser?>){
+    private fun handleSignIn(it: DataState<User>){
 
         when(it){
 

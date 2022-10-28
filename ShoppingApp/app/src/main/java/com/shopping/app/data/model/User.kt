@@ -3,11 +3,12 @@ package com.shopping.app.data.model
 import android.text.TextUtils
 import android.util.Patterns
 
-class User(
-    val email: String,
-    val password: String,
-    val passwordAgain: String = "",
-    val username: String = ""
+data class User(
+    var email: String,
+    var password: String,
+    var passwordAgain: String? = null,
+    var username: String? = null,
+    var uid: String? = null
 ) {
 
     fun isSignInFieldEmpty() : Boolean{

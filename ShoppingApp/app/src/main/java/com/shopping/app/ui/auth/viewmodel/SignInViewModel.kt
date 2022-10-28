@@ -3,14 +3,13 @@ package com.shopping.app.ui.auth.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
 
 class SignInViewModel : ViewModel() {
 
-    val userLiveData = MutableLiveData<DataState<FirebaseUser?>>()
+    val userLiveData = MutableLiveData<DataState<User>>()
 
     fun onSignInClicked(email: String, password: String){
 
@@ -47,7 +46,8 @@ class SignInViewModel : ViewModel() {
 
             if(task.isSuccessful) {
 
-                userLiveData.value = DataState.Success(task.result.user)
+                user.uid = task.result.user?.uid
+                userLiveData.value = DataState.Success(user)
 
             }else {
 

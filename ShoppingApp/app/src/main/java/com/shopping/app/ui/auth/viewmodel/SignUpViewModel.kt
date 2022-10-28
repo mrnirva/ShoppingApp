@@ -3,24 +3,27 @@ package com.shopping.app.ui.auth.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
+import com.shopping.app.utils.Constants
 
 class SignUpViewModel : ViewModel() {
 
-    val userLiveData = MutableLiveData<DataState<FirebaseUser?>>()
+    val userLiveData = MutableLiveData<DataState<User>>()
+    private lateinit var user: User
 
     fun onSignUpClicked(username: String, email: String, password: String, passwordAgain: String){
 
         userLiveData.value = DataState.Loading()
-        val user = User(email, password, passwordAgain, username)
-        checkFields(user)
+        user = User(email, password, passwordAgain, username)
+        checkFields()
 
     }
 
-    private fun checkFields(user: User){
+    private fun checkFields(){
 
         if(user.isSignUpFieldEmpty()){
             userLiveData.value = DataState.Error(R.string.fields_cannot_empty.toString())
@@ -42,17 +45,18 @@ class SignUpViewModel : ViewModel() {
             return
         }
 
-        signUp(user)
+        signUp()
 
     }
 
-    private fun signUp(user: User){
+    private fun signUp(){
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
 
             if(task.isSuccessful) {
 
-                userLiveData.value = DataState.Success(task.result.user)
+                user.uid = task.result.user!!.uid
+                userAddDatabase()
 
             }else {
 
@@ -61,6 +65,26 @@ class SignUpViewModel : ViewModel() {
             }
 
         }
+
+    }
+
+    private fun userAddDatabase(){
+
+        val db = Firebase.firestore
+
+        val userMap = hashMapOf(
+            "username" to user.username,
+            "uid" to user.uid,
+        )
+
+        db.collection(Constants.FIRESTORE_USERS_TABLE)
+            .add(userMap)
+            .addOnSuccessListener {
+                userLiveData.value = DataState.Success(user)
+            }
+            .addOnFailureListener { e ->
+                userLiveData.value = DataState.Error(e.message!!)
+            }
 
     }
 
