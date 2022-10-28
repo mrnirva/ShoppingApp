@@ -68,4 +68,7 @@ dependencies {
     //Lottie
     implementation 'com.airbnb.android:lottie:4.2.2'
 
+    // Firebase Firestore
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.4.0'
+
 }
