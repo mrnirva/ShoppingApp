@@ -8,21 +8,21 @@ import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
 
-class SignInViewModel : ViewModel() {
+class SignUpViewModel : ViewModel() {
 
     val userLiveData = MutableLiveData<DataState<FirebaseUser?>>()
 
-    fun onSignInClicked(email: String, password: String){
+    fun onSignUpClicked(username: String, email: String, password: String, passwordAgain: String){
 
         userLiveData.value = DataState.Loading()
-        val user = User(email, password)
+        val user = User(email, password, passwordAgain, username)
         checkFields(user)
 
     }
 
     private fun checkFields(user: User){
 
-        if(user.isSignInFieldEmpty()){
+        if(user.isSignUpFieldEmpty()){
             userLiveData.value = DataState.Error(R.string.fields_cannot_empty.toString())
             return
         }
@@ -32,18 +32,23 @@ class SignInViewModel : ViewModel() {
             return
         }
 
+        if(!user.isPasswordMatch()){
+            userLiveData.value = DataState.Error(R.string.passwords_dont_match.toString())
+            return
+        }
+
         if(!user.isPasswordGreaterThan5()){
             userLiveData.value = DataState.Error(R.string.password_greater_than_5.toString())
             return
         }
 
-        signIn(user)
+        signUp(user)
 
     }
 
-    private fun signIn(user: User){
+    private fun signUp(user: User){
 
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
+        FirebaseAuth.getInstance().createUserWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
 
             if(task.isSuccessful) {
 

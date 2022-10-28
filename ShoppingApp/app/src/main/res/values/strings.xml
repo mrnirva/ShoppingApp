@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Shopping App</string>
+
     <string name="skip">Skip</string>
     <string name="previous">PREVIOUS</string>
     <string name="next">NEXT</string>
     <string name="finish">FINISH</string>
+
+
     <string name="welcome_to_shopping_app">Welcome to Shopping App</string>
     <string name="signin">SIGN IN</string>
     <string name="signup">SIGN UP</string>
@@ -12,4 +15,10 @@
     <string name="password_again">Password Again</string>
     <string name="username">Username</string>
     <string name="close">Close</string>
+    <string name="fields_cannot_empty">Fields cannot be empty!</string>
+    <string name="enter_valid_email">Please enter a valid email address!</string>
+    <string name="passwords_dont_match">Passwords don\'t match!</string>
+    <string name="password_greater_than_5">Password must be greater than 5 characters!</string>
+
+
 </resources>
