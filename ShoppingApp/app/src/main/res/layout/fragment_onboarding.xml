@@ -60,7 +60,9 @@
             android:textSize="16sp"
             android:onClick="@{() -> onboardingFragment.nextScreen()}"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            android:clickable="true"
+            android:focusable="true"/>
 
         <Button
             android:id="@+id/btnPrevious"

@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+        <variable
+            name="viewModel"
+            type="com.shopping.app.ui.auth.viewmodel.SignInViewModel" />
+    </data>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -46,7 +52,8 @@
                 android:text="@string/signin"
                 android:layout_marginTop="15dp"
                 app:backgroundTint="@null"
-                android:background="@drawable/bg_auth_button"/>
+                android:background="@drawable/bg_auth_button"
+                android:onClick="@{() -> viewModel.onSignInClicked(etEmail.getText().toString(), etPassword.getText().toString())}"/>
 
         </LinearLayout>
 
