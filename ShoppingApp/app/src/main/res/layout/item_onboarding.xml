@@ -9,6 +9,8 @@
             name="dataHolder"
             type="com.shopping.app.data.model.OnBoardModel" />
 
+        <import type="androidx.core.content.ContextCompat"/>
+        
     </data>
 
     <LinearLayout
@@ -22,6 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:padding="8dp"
             app:imageResource="@{dataHolder.onboardImage}"/>
 
         <TextView
@@ -33,7 +36,7 @@
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:text="@{dataHolder.title}"/>
+            android:text="@{context.getString(dataHolder.title)}"/>
 
         <TextView
             android:id="@+id/tvDescription"
@@ -44,7 +47,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="16sp"
-            android:text="@{dataHolder.description}"/>
+            android:text="@{context.getString(dataHolder.description)}"/>
 
     </LinearLayout>
 

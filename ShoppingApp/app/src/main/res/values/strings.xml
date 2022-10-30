@@ -6,6 +6,14 @@
     <string name="next">NEXT</string>
     <string name="finish">FINISH</string>
 
+    <string name="onboarding_1_title">Shop Easily</string>
+    <string name="onboarding_1_desc">You can find all the products you are looking for and buy them easily.</string>
+    <string name="onboarding_2_title">Fast Shipping</string>
+    <string name="onboarding_2_desc">The products are delivered to you quickly.</string>
+    <string name="onboarding_3_title">Simply Pay</string>
+    <string name="onboarding_3_desc">Pay by credit card or in installments.</string>
+    <string name="onboarding_4_title">Let\'s Start Shopping</string>
+    <string name="onboarding_4_desc">Find the product, make the payment and receive it by courier.</string>
 
     <string name="welcome_to_shopping_app">Welcome to Shopping App</string>
     <string name="signin">SIGN IN</string>

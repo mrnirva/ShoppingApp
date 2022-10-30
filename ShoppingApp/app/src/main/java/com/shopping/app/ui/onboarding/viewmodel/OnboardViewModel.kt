@@ -19,19 +19,24 @@ class OnboardViewModel : ViewModel() {
 
             listOf(
                 OnBoardModel(
-                    R.drawable.boarding_image_1,
-                    "Title 1",
-                    "Description 1"
+                    R.drawable.ic_onboarding_1,
+                    R.string.onboarding_1_title,
+                    R.string.onboarding_1_desc
                 ),
                 OnBoardModel(
-                    R.drawable.boarding_image_2,
-                    "Title 2",
-                    "Description 2"
+                    R.drawable.ic_onboarding_2,
+                    R.string.onboarding_2_title,
+                    R.string.onboarding_2_desc
                 ),
                 OnBoardModel(
-                    R.drawable.boarding_image_3,
-                    "Title 3",
-                    "Description 3"
+                    R.drawable.ic_onboarding_3,
+                    R.string.onboarding_3_title,
+                    R.string.onboarding_3_desc
+                ),
+                OnBoardModel(
+                    R.drawable.ic_onboarding_4,
+                    R.string.onboarding_4_title,
+                    R.string.onboarding_4_desc
                 )
             )
 
