@@ -16,7 +16,7 @@
         android:theme="@style/Theme.ShoppingApp"
         tools:targetApi="31">
         <activity
-            android:name=".ui.activity.LaunchActivity"
+            android:name=".ui.activity.MainActivity"
             android:exported="true">
 
             <intent-filter>
@@ -26,9 +26,6 @@
             </intent-filter>
 
         </activity>
-        <activity
-            android:name=".ui.activity.MainActivity"
-            android:exported="false" />
     </application>
 
 </manifest>
