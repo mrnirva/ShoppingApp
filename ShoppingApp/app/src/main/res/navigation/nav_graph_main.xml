@@ -28,5 +28,14 @@
             app:destination="@id/onboardingFragment"
             app:popUpTo="@id/nav_graph_main"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_mainMenuFragment"
+            app:destination="@id/mainMenuFragment"
+            app:popUpTo="@id/nav_graph_main"
+            app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.shopping.app.ui.main.MainMenuFragment"
+        android:label="MainMenuFragment" />
 </navigation>

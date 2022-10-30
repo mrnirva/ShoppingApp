@@ -29,5 +29,10 @@
     <string name="passwords_dont_match">Passwords don\'t match!</string>
     <string name="password_greater_than_5">Password must be greater than 5 characters!</string>
 
+    <!-- Main Menu Screen-->
+    <string name="products">Products</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+
 
 </resources>
