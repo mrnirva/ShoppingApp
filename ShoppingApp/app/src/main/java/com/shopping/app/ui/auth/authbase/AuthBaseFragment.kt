@@ -1,4 +1,4 @@
-package com.shopping.app.ui.auth
+package com.shopping.app.ui.auth.authbase
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,18 +8,20 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayoutMediator
 import com.shopping.app.R
-import com.shopping.app.databinding.FragmentAuthBinding
-import com.shopping.app.ui.auth.adapter.AuthTabLayoutAdapter
+import com.shopping.app.databinding.FragmentAuthBaseBinding
+import com.shopping.app.ui.auth.authbase.adapter.AuthTabLayoutAdapter
+import com.shopping.app.ui.auth.signin.SignInFragment
+import com.shopping.app.ui.auth.signup.SignUpFragment
 
-class AuthFragment : Fragment() {
+class AuthBaseFragment : Fragment() {
 
-    private lateinit var bnd: FragmentAuthBinding
+    private lateinit var bnd: FragmentAuthBaseBinding
     private val fragmentList = ArrayList<Fragment>()
     private val fragmentTitleList = ArrayList<String>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_auth, container, false)
+        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_auth_base, container, false)
         init()
         return bnd.root
 
@@ -33,7 +35,7 @@ class AuthFragment : Fragment() {
         fragmentTitleList.add(resources.getString(R.string.signin))
         fragmentTitleList.add(resources.getString(R.string.signup))
 
-        val adapter = AuthTabLayoutAdapter(fragmentList, this@AuthFragment)
+        val adapter = AuthTabLayoutAdapter(fragmentList, this@AuthBaseFragment)
         bnd.viewPager.adapter = adapter
 
         TabLayoutMediator(bnd.tabLayout, bnd.viewPager){ tab, position ->

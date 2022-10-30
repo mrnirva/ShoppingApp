@@ -1,4 +1,4 @@
-package com.shopping.app.ui.auth.viewmodel
+package com.shopping.app.ui.auth.signup.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

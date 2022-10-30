@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.shopping.app.ui.auth.viewmodel.SignUpViewModel" />
+            type="com.shopping.app.ui.auth.signup.viewmodel.SignUpViewModel" />
     </data>
 
     <ScrollView

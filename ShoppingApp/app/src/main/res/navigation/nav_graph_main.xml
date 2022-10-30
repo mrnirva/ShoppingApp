@@ -18,6 +18,6 @@
     </fragment>
     <fragment
         android:id="@+id/authFragment"
-        android:name="com.shopping.app.ui.auth.AuthFragment"
+        android:name="com.shopping.app.ui.auth.authbase.AuthBaseFragment"
         android:label="AuthFragment" />
 </navigation>

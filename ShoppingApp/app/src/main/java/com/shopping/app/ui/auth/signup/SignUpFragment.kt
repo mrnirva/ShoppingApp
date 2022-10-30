@@ -1,4 +1,4 @@
-package com.shopping.app.ui.auth
+package com.shopping.app.ui.auth.signup
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,19 +12,19 @@ import androidx.fragment.app.viewModels
 import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
-import com.shopping.app.databinding.FragmentSignInBinding
-import com.shopping.app.ui.auth.viewmodel.SignInViewModel
+import com.shopping.app.databinding.FragmentSignUpBinding
+import com.shopping.app.ui.auth.signup.viewmodel.SignUpViewModel
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
 
-class SignInFragment : Fragment() {
+class SignUpFragment : Fragment() {
 
-    private lateinit var bnd: FragmentSignInBinding
+    private lateinit var bnd: FragmentSignUpBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
-    private val viewModel: SignInViewModel by viewModels()
+    private val viewModel: SignUpViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
-        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
+        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         init()
         return bnd.root
 
@@ -37,13 +37,13 @@ class SignInFragment : Fragment() {
 
         viewModel.userLiveData.observe(viewLifecycleOwner){
 
-            handleSignIn(it)
+            handleSignUp(it)
 
         }
 
     }
 
-    private fun handleSignIn(it: DataState<User>){
+    private fun handleSignUp(it: DataState<User>){
 
         when(it){
 

@@ -1,4 +1,4 @@
-package com.shopping.app.ui.auth.adapter
+package com.shopping.app.ui.auth.authbase.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
