@@ -33,6 +33,8 @@
     <string name="products">Products</string>
     <string name="search">Search</string>
     <string name="profile">Profile</string>
+    <string name="no_data">No data</string>
+    <string name="currency_unit">%.2f₺</string>
 
 
 </resources>
