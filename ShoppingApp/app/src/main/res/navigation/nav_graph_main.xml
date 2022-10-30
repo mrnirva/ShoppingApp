@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main"
-    app:startDestination="@id/onboardingFragment">
-
+    app:startDestination="@id/splashFragment">
     <fragment
         android:id="@+id/onboardingFragment"
         android:name="com.shopping.app.ui.onboarding.OnboardingFragment"
@@ -20,4 +19,14 @@
         android:id="@+id/authFragment"
         android:name="com.shopping.app.ui.auth.authbase.AuthBaseFragment"
         android:label="AuthFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.shopping.app.ui.splash.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment"
+            app:popUpTo="@id/nav_graph_main"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

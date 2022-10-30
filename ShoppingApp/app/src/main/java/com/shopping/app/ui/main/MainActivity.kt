@@ -1,4 +1,4 @@
-package com.shopping.app.ui.activity
+package com.shopping.app.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
