@@ -30,7 +30,6 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
                 if (response.isSuccessful) {
                     response.body()?.let {
                         _productLiveData.postValue(DataState.Success(it))
-
                     } ?: kotlin.run {
                         _productLiveData.postValue(DataState.Error("Data Empty"))
                     }

@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_indicator_inactive.xml" value="0.124" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_onboarding_button.xml" value="0.211" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_onboarding_view_pager.xml" value="0.211" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_product_gradient.xml" value="0.2" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/bg_view_pager.xml" value="0.211" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/ic_home.xml" value="0.211" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/drawable/ic_profile.xml" value="0.211" />
@@ -31,6 +32,7 @@
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/fragment_splash.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_loading_progress.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_onboarding.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/menu/bottom_bar_menu.xml" value="0.25416666666666665" />
       </map>
     </option>

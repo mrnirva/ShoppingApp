@@ -1,11 +1,9 @@
 package com.shopping.app.ui.main.product
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,12 +14,14 @@ import com.shopping.app.data.model.DataState
 import com.shopping.app.data.repository.product.ProductRepositoryImpl
 import com.shopping.app.databinding.FragmentProductBinding
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
+import com.shopping.app.ui.main.product.adapter.ProductAdapter
 import com.shopping.app.ui.main.product.viewmodel.ProductViewModel
 import com.shopping.app.ui.main.product.viewmodel.ProductViewModelFactory
 
 class ProductFragment : Fragment() {
 
     private lateinit var bnd: FragmentProductBinding
+    private lateinit var productAdapter: ProductAdapter
     private lateinit var loadingProgressBar: LoadingProgressBar
     private val viewModel by viewModels<ProductViewModel>() {
         ProductViewModelFactory(
@@ -51,7 +51,8 @@ class ProductFragment : Fragment() {
                     loadingProgressBar.hide()
                     it.data?.let { safeData ->
 
-                        Log.e("hata","data ${safeData.toString()}")
+                        productAdapter = ProductAdapter(requireContext(), safeData)
+                        bnd.gridViewProduct.adapter = productAdapter
 
                     } ?: run {
                         Snackbar.make(bnd.root, getString(R.string.no_data), Snackbar.LENGTH_LONG).show()
