@@ -36,6 +36,6 @@
     </fragment>
     <fragment
         android:id="@+id/mainMenuFragment"
-        android:name="com.shopping.app.ui.main.MainMenuFragment"
+        android:name="com.shopping.app.ui.main.mainbase.MainMenuFragment"
         android:label="MainMenuFragment" />
 </navigation>

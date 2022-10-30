@@ -1,4 +1,4 @@
-package com.shopping.app.ui.main
+package com.shopping.app.ui.main.mainbase
 
 import android.os.Bundle
 import android.view.LayoutInflater
