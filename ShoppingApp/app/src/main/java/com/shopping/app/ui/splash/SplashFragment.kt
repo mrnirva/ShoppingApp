@@ -33,8 +33,8 @@ class SplashFragment : Fragment() {
 
     private fun init(){
 
-        // findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
-        findNavController().navigate(R.id.action_splashFragment_to_mainMenuFragment)
+        findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
+        // findNavController().navigate(R.id.action_splashFragment_to_mainMenuFragment)
 
     }
 
