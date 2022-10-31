@@ -81,7 +81,6 @@ class SignInFragment : Fragment() {
             userPref.setEmail(user.email)
             userPref.setUid(user.uid!!)
 
-
             findNavController().navigate(R.id.action_authFragment_to_mainMenuFragment)
 
         }

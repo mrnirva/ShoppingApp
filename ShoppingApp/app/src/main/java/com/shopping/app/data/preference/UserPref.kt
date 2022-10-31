@@ -3,6 +3,7 @@ package com.shopping.app.data.preference
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.booleanPreferencesKey
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
@@ -17,6 +18,7 @@ class UserPref(var context: Context) {
         val KEY_USERNAME = stringPreferencesKey("USERNAME")
         val KEY_EMAIL = stringPreferencesKey("EMAIL")
         val KEY_UID = stringPreferencesKey("UID")
+        val KEY_IS_FIRST_USAGE = booleanPreferencesKey("IS_FIRST_USAGE")
     }
 
     suspend fun setUsername(username:String){
@@ -50,6 +52,17 @@ class UserPref(var context: Context) {
     suspend fun getUid():String{
         val p = context.ds.data.first()
         return p[KEY_UID] ?: ""
+    }
+
+    suspend fun setFirstUsage(value:Boolean){
+        context.ds.edit {
+            it[KEY_IS_FIRST_USAGE] = value
+        }
+    }
+
+    suspend fun isFirstUsage():Boolean{
+        val p = context.ds.data.first()
+        return p[KEY_IS_FIRST_USAGE] ?: true
     }
 
     suspend fun clearAllPreference() {
