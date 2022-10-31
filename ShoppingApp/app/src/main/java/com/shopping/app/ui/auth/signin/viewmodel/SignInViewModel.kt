@@ -71,7 +71,7 @@ class SignInViewModel : ViewModel() {
             .addSnapshotListener { value, error ->
 
                 if(error == null){
-                    
+
                     for((k,v) in value?.data!!.iterator()){
 
                         if(k.equals("username")){
