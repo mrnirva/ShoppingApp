@@ -78,7 +78,8 @@ class SignUpViewModel : ViewModel() {
         )
 
         db.collection(Constants.FIRESTORE_USERS_TABLE)
-            .add(userMap)
+            .document(user.uid.toString())
+            .set(userMap)
             .addOnSuccessListener {
                 userLiveData.value = DataState.Success(user)
             }

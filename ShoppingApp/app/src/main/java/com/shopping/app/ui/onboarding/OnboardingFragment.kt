@@ -13,10 +13,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.auth.FirebaseAuth
 import com.shopping.app.R
+import com.shopping.app.data.preference.UserPref
 import com.shopping.app.databinding.FragmentOnboardingBinding
 import com.shopping.app.ui.onboarding.adapter.OnboardAdapter
 import com.shopping.app.ui.onboarding.viewmodel.OnboardViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class OnboardingFragment : Fragment(), OnboardButtonListener {
 
@@ -121,7 +127,16 @@ class OnboardingFragment : Fragment(), OnboardButtonListener {
     }
 
     fun nextScreen(){
-        findNavController().navigate(R.id.action_onboardingFragment_to_authFragment)
+
+        val userPref = UserPref(requireContext())
+        CoroutineScope(Dispatchers.Main).launch {
+
+            userPref.setFirstUsage(false)
+            findNavController().navigate(R.id.action_onboardingFragment_to_authFragment)
+
+        }
+
+
     }
 
 }

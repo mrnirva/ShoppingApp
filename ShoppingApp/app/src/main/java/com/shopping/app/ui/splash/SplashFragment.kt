@@ -1,6 +1,7 @@
 package com.shopping.app.ui.splash
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +14,18 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import com.shopping.app.R
+import com.shopping.app.data.preference.UserPref
 import com.shopping.app.databinding.FragmentOnboardingBinding
 import com.shopping.app.databinding.FragmentSplashBinding
 import com.shopping.app.ui.onboarding.adapter.OnboardAdapter
 import com.shopping.app.ui.onboarding.viewmodel.OnboardViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashFragment : Fragment() {
 
@@ -33,8 +41,26 @@ class SplashFragment : Fragment() {
 
     private fun init(){
 
-        // findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
-        findNavController().navigate(R.id.action_splashFragment_to_mainMenuFragment)
+        val userPref = UserPref(requireContext())
+        CoroutineScope(Dispatchers.Main).launch {
+
+            delay(2000)
+
+            if(FirebaseAuth.getInstance().currentUser != null && userPref.getEmail().isNotEmpty()){
+
+                findNavController().navigate(R.id.action_splashFragment_to_mainMenuFragment)
+
+            }else{
+
+                if(userPref.isFirstUsage()){
+                    findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
+                }else{
+                    findNavController().navigate(R.id.action_splashFragment_to_authFragment)
+                }
+
+            }
+
+        }
 
     }
 
