@@ -1,6 +1,7 @@
 package com.shopping.app.ui.auth.signin
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -53,6 +54,7 @@ class SignInFragment : Fragment() {
 
             is DataState.Success -> {
                 loadingProgressBar.cancel()
+                saveUser(it.data)
             }
 
             is DataState.Error -> {
@@ -61,6 +63,12 @@ class SignInFragment : Fragment() {
             }
 
         }
+
+    }
+
+    private fun saveUser(user: User){
+
+        Log.e("hata","user: $user")
 
     }
 
