@@ -13,4 +13,7 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#BEBEBE</color>
 
+    <color name="red">#E14034</color>
+    <color name="green">#4CAF50</color>
+
 </resources>
