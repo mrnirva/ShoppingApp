@@ -3,6 +3,7 @@ package com.shopping.app.ui.main.search.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.shopping.app.data.model.CategoryModel
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.Product
 import com.shopping.app.data.repository.product.ProductRepository
@@ -15,18 +16,85 @@ import java.util.*
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel() {
 
     private lateinit var productList:List<Product>
+    private lateinit var categoryList:List<CategoryModel>
 
     private var _searchLiveData = MutableLiveData<DataState<List<Product>?>>()
     val searchLiveData: LiveData<DataState<List<Product>?>>
         get() = _searchLiveData
 
-    private var _categoryLiveData = MutableLiveData<DataState<List<String>?>>()
-    val categoryLiveData: LiveData<DataState<List<String>?>>
+    private var _categoryLiveData = MutableLiveData<DataState<List<CategoryModel>?>>()
+    val categoryLiveData: LiveData<DataState<List<CategoryModel>?>>
         get() = _categoryLiveData
 
     init {
-        getProducts()
         getCategories()
+        getProducts()
+    }
+
+    private fun getCategories(){
+
+        _categoryLiveData.postValue(DataState.Loading())
+        searchRepository.getCategories().enqueue(object: Callback<List<String>>{
+
+            override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
+
+                if (response.isSuccessful) {
+
+                    response.body()?.let {
+
+                        categoryList = it.map {
+                            CategoryModel(
+                                it,
+                                false
+                            )
+                        }
+
+                        _categoryLiveData.postValue(DataState.Success(categoryList))
+
+                    } ?: kotlin.run {
+                        _categoryLiveData.postValue(DataState.Error("Data Empty"))
+                    }
+                } else {
+                    _categoryLiveData.postValue(DataState.Error(response.message()))
+                }
+
+            }
+
+            override fun onFailure(call: Call<List<String>>, t: Throwable) {
+                _categoryLiveData.postValue(DataState.Error(t.message.toString()))
+            }
+        })
+
+    }
+
+    fun getProductsCheck(categoryModel: CategoryModel){
+
+        if(categoryModel.isSelected){
+
+            categoryList.map {
+                it.isSelected = false
+            }
+
+            _categoryLiveData.postValue(DataState.Success(
+                categoryList
+            ))
+
+            getProducts()
+
+        }else{
+
+            categoryList.map {
+                it.isSelected = it == categoryModel
+            }
+
+            _categoryLiveData.postValue(DataState.Success(
+                categoryList
+            ))
+
+            getProductsByCategory(categoryModel)
+
+        }
+
     }
 
     private fun getProducts(){
@@ -59,38 +127,10 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
 
     }
 
-    private fun getCategories(){
-
-        _categoryLiveData.postValue(DataState.Loading())
-        searchRepository.getCategories().enqueue(object: Callback<List<String>>{
-
-            override fun onResponse(call: Call<List<String>>, response: Response<List<String>>) {
-
-                if (response.isSuccessful) {
-                    response.body()?.let {
-
-                        _categoryLiveData.postValue(DataState.Success(it))
-
-                    } ?: kotlin.run {
-                        _categoryLiveData.postValue(DataState.Error("Data Empty"))
-                    }
-                } else {
-                    _categoryLiveData.postValue(DataState.Error(response.message()))
-                }
-
-            }
-
-            override fun onFailure(call: Call<List<String>>, t: Throwable) {
-                _categoryLiveData.postValue(DataState.Error(t.message.toString()))
-            }
-        })
-
-    }
-
-    fun getProductsByCategory(category: String){
+    private fun getProductsByCategory(categoryModel: CategoryModel){
 
         _searchLiveData.postValue(DataState.Loading())
-        searchRepository.getProductsByCategory(category).enqueue(object: Callback<List<Product>>{
+        searchRepository.getProductsByCategory(categoryModel.categoryName).enqueue(object: Callback<List<Product>>{
 
             override fun onResponse(call: Call<List<Product>>, response: Response<List<Product>>) {
 

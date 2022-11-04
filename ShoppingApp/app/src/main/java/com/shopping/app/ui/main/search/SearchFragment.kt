@@ -15,15 +15,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shopping.app.R
 import com.shopping.app.data.api.ApiClient
+import com.shopping.app.data.model.CategoryModel
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.repository.search.SearchRepositoryImpl
 import com.shopping.app.databinding.FragmentSearchBinding
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
+import com.shopping.app.ui.main.search.adapter.CategoryAdapter
 import com.shopping.app.ui.main.search.adapter.SearchAdapter
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModel
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModelFactory
 
-class SearchFragment : Fragment() {
+class SearchFragment : Fragment(), CategoryClickListener {
 
     private lateinit var bnd: FragmentSearchBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
@@ -88,7 +90,14 @@ class SearchFragment : Fragment() {
                 is DataState.Success -> {
                     it.data?.let { safeData ->
 
-                        
+                        val categoryAdapter = CategoryAdapter(safeData, this)
+                        bnd.rvCategory.layoutManager = LinearLayoutManager(
+                            requireContext(),
+                            LinearLayoutManager.HORIZONTAL,
+                            false
+                        )
+                        bnd.rvCategory.setHasFixedSize(true)
+                        bnd.rvCategory.adapter = categoryAdapter
 
                     } ?: run {
                         Snackbar.make(bnd.root, getString(R.string.no_data), Snackbar.LENGTH_LONG).show()
@@ -128,4 +137,12 @@ class SearchFragment : Fragment() {
 
     }
 
+    override fun onClick(category: CategoryModel) {
+        viewModel.getProductsCheck(category)
+    }
+
+}
+
+interface CategoryClickListener{
+    fun onClick(category: CategoryModel)
 }
