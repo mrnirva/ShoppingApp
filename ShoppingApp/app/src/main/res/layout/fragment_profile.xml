@@ -3,22 +3,74 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+        <variable
+            name="email"
+            type="String" />
+        <variable
+            name="username"
+            type="String" />
+        <variable
+            name="profileFragment"
+            type="com.shopping.app.ui.main.profile.ProfileFragment" />
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Profile"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/ivProfile"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_profile"
+                android:background="@drawable/bg_arrow_back"
+                android:padding="1dp"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/tvUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:text="@{username}"/>
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                android:text="@{email}"/>
+
+            <Button
+                android:id="@+id/btnSignOut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_signout_button"
+                android:text="@string/sign_out"
+                android:textColor="@color/white"
+                app:backgroundTint="@null"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:onClick="@{v -> profileFragment.signOutDialog()}"/>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </layout>

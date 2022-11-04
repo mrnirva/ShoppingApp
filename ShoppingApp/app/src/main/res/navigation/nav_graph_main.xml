@@ -48,5 +48,9 @@
     <fragment
         android:id="@+id/mainMenuFragment"
         android:name="com.shopping.app.ui.main.mainbase.MainMenuFragment"
-        android:label="MainMenuFragment" />
+        android:label="MainMenuFragment" >
+        <action
+            android:id="@+id/action_mainMenuFragment_to_splashFragment"
+            app:destination="@id/splashFragment" />
+    </fragment>
 </navigation>
