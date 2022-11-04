@@ -35,8 +35,16 @@
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_onboarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/menu/bottom_bar_menu.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/drawable-v24/bg_addbasket_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable-v24/bg_arrow_back.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable-v24/bg_reduce_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_addbasket_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_increase_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_indicator_active.xml" value="0.178" />
+        <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_product.xml" value="0.23541666666666666" />
-        <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.23541666666666666" />
       </map>
     </option>
