@@ -38,13 +38,22 @@
         <entry key="app/src/main/res/drawable-v24/bg_addbasket_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable-v24/bg_arrow_back.xml" value="0.178" />
         <entry key="app/src/main/res/drawable-v24/bg_reduce_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable-v24/bg_signout_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_addbasket_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_arrow_back.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_auth_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_increase_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_indicator_active.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_indicator_inactive.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_onboarding_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_reduce_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.178" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.10052083333333334" />
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_product.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.23541666666666666" />
       </map>
     </option>

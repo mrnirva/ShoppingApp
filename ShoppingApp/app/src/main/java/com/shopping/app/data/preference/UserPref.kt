@@ -69,6 +69,7 @@ class UserPref(var context: Context) {
         context.ds.edit {
             it.clear()
         }
+        setFirstUsage(false)
     }
 
 }

@@ -42,4 +42,10 @@
     <string name="increase_char">+</string>
     <string name="reduce_char">-</string>
 
+    <!-- Profile -->
+    <string name="sign_out">SIGN OUT</string>
+    <string name="sign_out_message">Are you sure want to sign out of your account?</string>
+    <string name="continue_">CONTINUE</string>
+    <string name="cancel">Cancel</string>
+
 </resources>
