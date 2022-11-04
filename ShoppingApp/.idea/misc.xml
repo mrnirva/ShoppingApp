@@ -35,7 +35,9 @@
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_onboarding.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/layout/item_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Nirva/Desktop/ShoppingApp/ShoppingApp/app/src/main/res/menu/bottom_bar_menu.xml" value="0.25416666666666665" />
+        <entry key="app/src/main/res/layout/fragment_product.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/item_product.xml" value="0.23541666666666666" />
       </map>
     </option>
   </component>
