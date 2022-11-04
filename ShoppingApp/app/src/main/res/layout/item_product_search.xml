@@ -10,23 +10,23 @@
             type="com.shopping.app.data.model.Product" />
 
         <import type="androidx.core.content.ContextCompat"/>
-        
+
+        <variable
+            name="searchAdapter"
+            type="com.shopping.app.ui.main.search.adapter.SearchAdapter" />
+
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:foreground="?android:attr/selectableItemBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginBottom="1dp">
+        android:layout_marginBottom="1dp"
+        android:onClick="@{v -> searchAdapter.goProductDetails(dataHolder)}">
 
         <LinearLayout
-            android:id="@+id/llProductItem"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
             android:gravity="center"
             android:orientation="horizontal"
             android:padding="10dp"

@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shopping.app.R
@@ -55,7 +56,7 @@ class SearchFragment : Fragment() {
                     loadingProgressBar.hide()
                     it.data?.let { safeData ->
 
-                        val searchAdapter = SearchAdapter(requireContext(), safeData)
+                        val searchAdapter = SearchAdapter(findNavController(), safeData)
                         bnd.rvSearch.layoutManager = LinearLayoutManager(
                             requireContext(),
                             LinearLayoutManager.VERTICAL,
