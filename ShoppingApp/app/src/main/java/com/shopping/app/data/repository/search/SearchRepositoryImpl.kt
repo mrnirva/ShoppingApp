@@ -10,4 +10,12 @@ class SearchRepositoryImpl constructor(private val apiService: ApiService) : Sea
         return apiService.getProducts()
     }
 
+    override fun getCategories(): Call<List<String>> {
+        return apiService.getCategories()
+    }
+
+    override fun getProductsByCategory(category: String): Call<List<Product>> {
+        return apiService.getProductsByCategory(category)
+    }
+
 }

@@ -7,4 +7,8 @@ interface SearchRepository {
 
     fun getProducts(): Call<List<Product>>
 
+    fun getProductsByCategory(category: String): Call<List<Product>>
+
+    fun getCategories(): Call<List<String>>
+
 }

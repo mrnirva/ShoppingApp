@@ -1,6 +1,7 @@
 package com.shopping.app.ui.main.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -77,6 +78,26 @@ class SearchFragment : Fragment() {
                 is DataState.Loading -> {
                     loadingProgressBar.show()
                 }
+            }
+
+        }
+
+        viewModel.categoryLiveData.observe(viewLifecycleOwner){
+
+            when (it) {
+                is DataState.Success -> {
+                    it.data?.let { safeData ->
+
+                        
+
+                    } ?: run {
+                        Snackbar.make(bnd.root, getString(R.string.no_data), Snackbar.LENGTH_LONG).show()
+                    }
+                }
+                is DataState.Error -> {
+                    Snackbar.make(bnd.root, it.message, Snackbar.LENGTH_LONG).show()
+                }
+                is DataState.Loading -> {}
             }
 
         }
