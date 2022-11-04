@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.shopping.app.R
 import com.shopping.app.data.api.ApiClient
@@ -15,6 +16,7 @@ import com.shopping.app.data.model.DataState
 import com.shopping.app.data.repository.search.SearchRepositoryImpl
 import com.shopping.app.databinding.FragmentSearchBinding
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
+import com.shopping.app.ui.main.search.adapter.SearchAdapter
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModel
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModelFactory
 
@@ -53,8 +55,14 @@ class SearchFragment : Fragment() {
                     loadingProgressBar.hide()
                     it.data?.let { safeData ->
 
-                        Toast.makeText(requireContext(), "Product: ${safeData[0].title}", Toast.LENGTH_LONG).show()
-
+                        val searchAdapter = SearchAdapter(requireContext(), safeData)
+                        bnd.rvSearch.layoutManager = LinearLayoutManager(
+                            requireContext(),
+                            LinearLayoutManager.VERTICAL,
+                            false
+                        )
+                        bnd.rvSearch.setHasFixedSize(true)
+                        bnd.rvSearch.adapter = searchAdapter
 
                     } ?: run {
                         Snackbar.make(bnd.root, getString(R.string.no_data), Snackbar.LENGTH_LONG).show()

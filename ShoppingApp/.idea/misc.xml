@@ -57,6 +57,7 @@
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/item_product_search.xml" value="0.23541666666666666" />
       </map>
     </option>
   </component>
