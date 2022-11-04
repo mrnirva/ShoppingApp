@@ -13,6 +13,7 @@ import retrofit2.Response
 
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel() {
 
+    private lateinit var productList:List<Product>
     private var _searchLiveData = MutableLiveData<DataState<List<Product>?>>()
     val searchLiveData: LiveData<DataState<List<Product>?>>
         get() = _searchLiveData
@@ -30,7 +31,10 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
 
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        _searchLiveData.postValue(DataState.Success(it))
+
+                        productList = it
+                        _searchLiveData.postValue(DataState.Success(productList))
+
                     } ?: kotlin.run {
                         _searchLiveData.postValue(DataState.Error("Data Empty"))
                     }
@@ -45,6 +49,30 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
             }
 
         })
+
+    }
+
+    fun searchProducts(isSearch:Boolean = false, query:String = ""){
+
+        if(productList.isNotEmpty()){
+
+            if(isSearch){
+
+                val searchList = productList.filter {
+                    it.title!!.lowercase().contains(query) ||
+                            it.description!!.lowercase().contains(query) ||
+                            it.category!!.lowercase().contains(query)
+                }
+
+                _searchLiveData.postValue(DataState.Success(searchList))
+
+            }else{
+                _searchLiveData.postValue(DataState.Success(productList))
+            }
+
+        }else{
+            getProducts()
+        }
 
     }
 

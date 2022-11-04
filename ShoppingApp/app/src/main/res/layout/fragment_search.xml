@@ -14,7 +14,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:iconifiedByDefault="false"/>
+            android:iconifiedByDefault="false"
+            android:queryHint="@string/search_hint"/>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSearch"

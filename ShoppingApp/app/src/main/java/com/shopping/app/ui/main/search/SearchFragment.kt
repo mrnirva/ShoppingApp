@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -79,6 +80,30 @@ class SearchFragment : Fragment() {
             }
 
         }
+
+        bnd.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+
+                if(query != null && query.length > 2){
+                    viewModel.searchProducts(true, query.lowercase())
+                }else{
+                    viewModel.searchProducts()
+                }
+
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+
+                if(newText != null && newText.length > 2){
+                    viewModel.searchProducts(true, newText.lowercase())
+                }else{
+                    viewModel.searchProducts()
+                }
+
+                return false
+            }
+        })
 
     }
 
