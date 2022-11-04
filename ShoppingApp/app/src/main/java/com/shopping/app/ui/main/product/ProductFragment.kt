@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.shopping.app.R
 import com.shopping.app.data.api.ApiClient
@@ -51,7 +52,7 @@ class ProductFragment : Fragment() {
                     loadingProgressBar.hide()
                     it.data?.let { safeData ->
 
-                        productAdapter = ProductAdapter(requireContext(), safeData)
+                        productAdapter = ProductAdapter(requireContext(), safeData, findNavController())
                         bnd.gridViewProduct.adapter = productAdapter
 
                     } ?: run {

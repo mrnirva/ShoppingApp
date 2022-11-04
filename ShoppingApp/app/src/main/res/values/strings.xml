@@ -36,5 +36,10 @@
     <string name="no_data">No data</string>
     <string name="currency_unit">%.2f₺</string>
 
+    <!-- Product Details -->
+    <string name="rating_count">%s Rating</string>
+    <string name="add_basket">Add Basket (%d)</string>
+    <string name="increase_char">+</string>
+    <string name="reduce_char">-</string>
 
 </resources>
