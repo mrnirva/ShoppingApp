@@ -51,4 +51,8 @@
     <!-- Search -->
     <string name="search_hint">Search a product…</string>
 
+    <!-- Basket -->
+    <string name="my_basket">MY BASKET</string>
+    <string name="purchase">PURCHASE (%.2f₺)</string>
+
 </resources>

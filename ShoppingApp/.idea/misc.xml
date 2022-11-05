@@ -51,6 +51,7 @@
         <entry key="app/src/main/res/drawable/bg_onboarding_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_reduce_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/ic_close.xml" value="0.268" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.10052083333333334" />
         <entry key="app/src/main/res/layout/fragment_basket.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.23541666666666666" />

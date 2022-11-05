@@ -5,11 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.shopping.app.R
 import com.shopping.app.databinding.FragmentBasketBinding
 
-class BasketFragment : Fragment() {
+class BasketFragment : BottomSheetDialogFragment() {
 
     private lateinit var bnd: FragmentBasketBinding
 
