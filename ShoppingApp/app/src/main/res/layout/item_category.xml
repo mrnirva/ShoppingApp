@@ -25,7 +25,7 @@
         android:text="@{dataHolder.categoryName}"
         android:background="@{dataHolder.selected ? @drawable/bg_category_selected_button : @drawable/bg_category_button}"
         android:textColor="@{dataHolder.selected ? @color/white : @color/main_color}"
-        android:onClick="@{v -> categoryAdapter.listener.onClick(dataHolder)}"
+        android:onClick="@{v -> categoryAdapter.listener.onClickCategory(dataHolder)}"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -6,12 +6,10 @@ import androidx.lifecycle.ViewModel
 import com.shopping.app.data.model.CategoryModel
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.Product
-import com.shopping.app.data.repository.product.ProductRepository
 import com.shopping.app.data.repository.search.SearchRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.util.*
 
 class SearchViewModel(private val searchRepository: SearchRepository) : ViewModel() {
 
@@ -67,33 +65,20 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
 
     }
 
-    fun getProductsCheck(categoryModel: CategoryModel){
+    fun getProductsByCategoryCheck(categoryModel: CategoryModel){
 
-        if(categoryModel.isSelected){
+        val isSelectedCategory = categoryModel.isSelected
+        categoryList.map {
 
-            categoryList.map {
-                it.isSelected = false
-            }
-
-            _categoryLiveData.postValue(DataState.Success(
-                categoryList
-            ))
-
-            getProducts()
-
-        }else{
-
-            categoryList.map {
-                it.isSelected = it == categoryModel
-            }
-
-            _categoryLiveData.postValue(DataState.Success(
-                categoryList
-            ))
-
-            getProductsByCategory(categoryModel)
+            if(isSelectedCategory) it.isSelected = false
+            else it.isSelected = it.categoryName == categoryModel.categoryName
 
         }
+
+        _categoryLiveData.postValue(DataState.Success(categoryList))
+
+        if(isSelectedCategory) getProducts()
+        else getProductsByCategory(categoryModel)
 
     }
 
@@ -164,9 +149,7 @@ class SearchViewModel(private val searchRepository: SearchRepository) : ViewMode
             if(isSearch){
 
                 val searchList = productList.filter {
-                    it.title!!.lowercase().contains(query) ||
-                            it.description!!.lowercase().contains(query) ||
-                            it.category!!.lowercase().contains(query)
+                    it.title!!.lowercase().contains(query) || it.description!!.lowercase().contains(query)
                 }
 
                 _searchLiveData.postValue(DataState.Success(searchList))

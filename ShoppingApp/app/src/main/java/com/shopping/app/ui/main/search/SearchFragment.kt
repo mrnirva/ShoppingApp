@@ -1,12 +1,10 @@
 package com.shopping.app.ui.main.search
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -25,7 +23,7 @@ import com.shopping.app.ui.main.search.adapter.SearchAdapter
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModel
 import com.shopping.app.ui.main.search.viewmodel.SearchViewModelFactory
 
-class SearchFragment : Fragment(), CategoryClickListener {
+class SearchFragment : Fragment(), CategoryClickListener, SearchView.OnQueryTextListener {
 
     private lateinit var bnd: FragmentSearchBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
@@ -111,38 +109,42 @@ class SearchFragment : Fragment(), CategoryClickListener {
 
         }
 
-        bnd.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-
-                if(query != null && query.length > 2){
-                    viewModel.searchProducts(true, query.lowercase())
-                }else{
-                    viewModel.searchProducts()
-                }
-
-                return false
-            }
-
-            override fun onQueryTextChange(newText: String?): Boolean {
-
-                if(newText != null && newText.length > 2){
-                    viewModel.searchProducts(true, newText.lowercase())
-                }else{
-                    viewModel.searchProducts()
-                }
-
-                return false
-            }
-        })
+        bnd.searchView.setOnQueryTextListener(this)
 
     }
 
-    override fun onClick(category: CategoryModel) {
-        viewModel.getProductsCheck(category)
+    private fun searchQuery(query:String?){
+
+        if(query != null && query.length > 2){
+            viewModel.searchProducts(true, query.lowercase())
+        }else{
+            viewModel.searchProducts()
+        }
+
+    }
+
+    override fun onClickCategory(category: CategoryModel) {
+        clearSearchView()
+        viewModel.getProductsByCategoryCheck(category)
+    }
+
+    private fun clearSearchView(){
+        bnd.searchView.setQuery("", false)
+        bnd.searchView.clearFocus()
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        searchQuery(query)
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        searchQuery(newText)
+        return false
     }
 
 }
 
 interface CategoryClickListener{
-    fun onClick(category: CategoryModel)
+    fun onClickCategory(category: CategoryModel)
 }
