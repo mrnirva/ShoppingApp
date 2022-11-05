@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataHolder"
+            type="com.shopping.app.data.model.CategoryModel" />
+
+        <import type="androidx.core.content.ContextCompat"/>
+
+        <variable
+            name="categoryAdapter"
+            type="com.shopping.app.ui.main.search.adapter.CategoryAdapter" />
+
+    </data>
+
+    <Button
+        android:id="@+id/btnCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@{dataHolder.categoryName}"
+        android:background="@{dataHolder.selected ? @drawable/bg_category_selected_button : @drawable/bg_category_button}"
+        android:textColor="@{dataHolder.selected ? @color/white : @color/main_color}"
+        android:onClick="@{v -> categoryAdapter.listener.onClickCategory(dataHolder)}"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</layout>
