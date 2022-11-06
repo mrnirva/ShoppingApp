@@ -34,7 +34,7 @@
     <string name="search">Search</string>
     <string name="profile">Profile</string>
     <string name="no_data">No data</string>
-    <string name="currency_unit">%.2f₺</string>
+    <string name="currency_unit">%.2f$</string>
 
     <!-- Product Details -->
     <string name="rating_count">%s Rating</string>
@@ -54,7 +54,7 @@
 
     <!-- Basket -->
     <string name="my_basket">MY BASKET</string>
-    <string name="purchase">PURCHASE (%.2f₺)</string>
+    <string name="purchase">PURCHASE (%.2f$)</string>
     <string name="product_reduce_message">Product reduced</string>
     <string name="product_increased_message">Product increased</string>
     <string name="product_deleted_message">Product deleted</string>

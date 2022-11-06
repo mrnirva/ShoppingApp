@@ -10,6 +10,7 @@
 
     <color name="main_color">#FF6200EE</color>
     <color name="main_color_light">#83739F</color>
+    <color name="main_product_color">#8A60D5</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#BEBEBE</color>
 
