@@ -17,16 +17,88 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:theme="?attr/actionBarTheme" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/main_color"
+                    android:text="@string/app_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <LinearLayout
+                    android:id="@+id/llBasket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:orientation="horizontal"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/bg_main_basket"
+                    android:paddingHorizontal="18dp"
+                    android:paddingVertical="2dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="@{@string/currency_unit(0.0)}"
+                        android:layout_marginEnd="5dp"/>
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:src="@drawable/ic_basket"
+                        android:padding="2dp"/>
+
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <View
+            android:id="@+id/dividerMain"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarMain"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navHostFragmentContainer"
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:defaultNavHost="true"
+            app:layout_constraintTop_toBottomOf="@id/dividerMain"
             app:layout_constraintBottom_toTopOf="@id/bottomNav"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/nav_graph_bottom_bar" />
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
