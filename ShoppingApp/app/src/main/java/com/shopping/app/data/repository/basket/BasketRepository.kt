@@ -9,7 +9,9 @@ import retrofit2.Call
 
 interface BasketRepository {
 
-    fun getProductsBasket(): CollectionReference
+    fun getAllProductsBasket(): CollectionReference
+
+    fun getTargetProductsBasket(productBasket: ProductBasket): DocumentReference
 
     fun addProductsToBasket(productBasket: ProductBasket): Task<Void>
 

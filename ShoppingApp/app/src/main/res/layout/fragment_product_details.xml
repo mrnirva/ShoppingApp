@@ -191,7 +191,7 @@
                     android:text="@{@string/add_basket(basketCount)}"
                     android:textColor="@color/white"
                     app:backgroundTint="@null"
-                    android:onClick="@{v -> viewModel.addProductsToBasket(dataHolder)}"/>
+                    android:onClick="@{v -> viewModel.checkProduct(dataHolder)}"/>
 
                 <TextView
                     android:id="@+id/btnIncreaseCount"

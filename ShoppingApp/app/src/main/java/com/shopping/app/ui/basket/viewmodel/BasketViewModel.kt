@@ -38,7 +38,7 @@ class BasketViewModel(private val basketRepository: BasketRepository) : ViewMode
 
     private fun getProductsBasket(){
 
-        basketRepository.getProductsBasket()
+        basketRepository.getAllProductsBasket()
             .addSnapshotListener{ value, error ->
 
                 if(error == null){

@@ -12,11 +12,20 @@ import com.shopping.app.utils.Constants.FIRESTORE_PRODUCTS_TABLE_PIECE_FIELD
 
 class BasketRepositoryImpl : BasketRepository {
 
-    override fun getProductsBasket(): CollectionReference {
+    override fun getAllProductsBasket(): CollectionReference {
 
         return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
             .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+
+    }
+
+    override fun getTargetProductsBasket(productBasket: ProductBasket): DocumentReference {
+
+        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+            .document(FirebaseAuth.getInstance().uid!!)
+            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .document(productBasket.id.toString())
 
     }
 

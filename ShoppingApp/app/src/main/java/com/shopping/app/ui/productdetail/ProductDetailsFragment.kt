@@ -2,6 +2,7 @@ package com.shopping.app.ui.productdetail
 
 import android.os.Bundle
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,9 +69,7 @@ class ProductDetailsFragment : Fragment() {
                 bnd.dataHolder = product
 
                 viewModel.productCountLiveData.observe(viewLifecycleOwner){ value ->
-
                     bnd.basketCount = value
-
                 }
 
             }
@@ -87,7 +86,7 @@ class ProductDetailsFragment : Fragment() {
             when (it) {
                 is DataState.Success -> {
                     loadingProgressBar.hide()
-                    Toast.makeText(requireContext(), getString(R.string.product_added_basket_message), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.product_added_basket_message), Toast.LENGTH_SHORT).show()
                 }
                 is DataState.Error -> {
                     loadingProgressBar.hide()

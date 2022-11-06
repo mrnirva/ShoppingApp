@@ -61,5 +61,6 @@
     <string name="purchase_message">Are you sure the payment will be received and your shopping will be completed.</string>
     <string name="purchase_success_message">Products purchased successfully.</string>
     <string name="basket_empty_message">Your basket is empty</string>
+    <string name="basket_empty_message_2">Your basket is empty, please add products.</string>
 
 </resources>
