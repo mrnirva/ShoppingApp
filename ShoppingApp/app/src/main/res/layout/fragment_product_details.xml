@@ -155,7 +155,7 @@
                 android:textColor="@color/main_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:text="@{@string/currency_unit(dataHolder.price)}"
+                android:text="@{@string/currency_unit(dataHolder.price * basketCount)}"
                 android:layout_marginTop="10dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -190,7 +190,8 @@
                     android:background="@drawable/bg_addbasket_button"
                     android:text="@{@string/add_basket(basketCount)}"
                     android:textColor="@color/white"
-                    app:backgroundTint="@null" />
+                    app:backgroundTint="@null"
+                    android:onClick="@{v -> viewModel.addProductsToBasket(dataHolder)}"/>
 
                 <TextView
                     android:id="@+id/btnIncreaseCount"

@@ -43,12 +43,16 @@
         <entry key="app/src/main/res/drawable/bg_addbasket_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_arrow_back.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_auth_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_auth_view_pager.xml" value="0.275" />
+        <entry key="app/src/main/res/drawable/bg_bottomsheet.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/bg_category_button.xml" value="0.2805" />
         <entry key="app/src/main/res/drawable/bg_category_selected_button.xml" value="0.268" />
         <entry key="app/src/main/res/drawable/bg_increase_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_indicator_active.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_indicator_inactive.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/bg_onboarding_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_onboarding_view_pager.xml" value="0.275" />
+        <entry key="app/src/main/res/drawable/bg_product_gradient.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/bg_reduce_button.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.268" />
@@ -57,12 +61,13 @@
         <entry key="app/src/main/res/layout/fragment_main_menu.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_product.xml" value="0.23541666666666666" />
-        <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_product_details.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/fragment_search.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.23541666666666666" />
         <entry key="app/src/main/res/layout/item_category.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/item_product.xml" value="0.23541666666666666" />
+        <entry key="app/src/main/res/layout/item_product_basket.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/item_product_search.xml" value="0.23541666666666666" />
       </map>
     </option>
