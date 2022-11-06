@@ -68,6 +68,7 @@
         <entry key="app/src/main/res/drawable/ic_onboarding_4.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/ic_profile.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/ic_search.xml" value="0.275" />
+        <entry key="app/src/main/res/drawable/rating_state.xml" value="0.275" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_auth_base.xml" value="0.32916666666666666" />
         <entry key="app/src/main/res/layout/fragment_basket.xml" value="0.32916666666666666" />

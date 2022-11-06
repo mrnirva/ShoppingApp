@@ -80,8 +80,9 @@
                             android:layout_height="wrap_content"
                             android:max="5"
                             android:numStars="5"
-                            android:progressTint="#FFEB3B"
+                            android:progressTint="@color/rating_bar_color"
                             android:progressBackgroundTint="@color/gray"
+                            android:secondaryProgressTint="@color/rating_bar_color"
                             android:rating="@{dataHolder.rating.rate.floatValue()}"
                             android:stepSize="0.1"
                             style="?android:attr/ratingBarStyleSmall" />
@@ -91,7 +92,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/black_secondary"
                             android:textSize="13sp"
                             android:layout_marginStart="5dp"
                             android:text="@{dataHolder.rating.rate.toString()}"/>
@@ -101,7 +102,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:textColor="@color/gray"
+                            android:textColor="@color/black_secondary"
                             android:textSize="13sp"
                             android:layout_marginStart="10dp"
                             android:text="@{@string/rating_count(dataHolder.rating.count.toString())}"/>
@@ -113,8 +114,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:textColor="@color/gray"
-                        android:textSize="18sp"
+                        android:textColor="@color/black_secondary"
+                        android:textSize="16sp"
                         android:layout_marginTop="10dp"
                         android:text="@{dataHolder.description}"/>
 

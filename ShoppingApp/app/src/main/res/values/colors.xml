@@ -13,6 +13,8 @@
     <color name="main_product_color">#8A60D5</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#BEBEBE</color>
+    <color name="rating_bar_color">#FFEB3B</color>
+    <color name="black_secondary">#5C5C5C</color>
 
     <color name="red">#E14034</color>
     <color name="green">#4CAF50</color>
