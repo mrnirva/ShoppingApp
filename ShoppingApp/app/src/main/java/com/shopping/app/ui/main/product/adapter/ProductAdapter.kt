@@ -17,8 +17,7 @@ import com.shopping.app.data.model.Product
 import com.shopping.app.databinding.ItemProductBinding
 import com.shopping.app.utils.Constants.PRODUCT_MODEL_NAME
 
-
-class ProductAdapter (context: Context, productList: List<Product?>, val navController: NavController) :
+class ProductAdapter (context: Context, productList: List<Product?>, private val navController: NavController) :
     ArrayAdapter<Product?>(context, 0, productList) {
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -59,11 +58,4 @@ class ProductAdapter (context: Context, productList: List<Product?>, val navCont
 
     }
 
-}
-
-@BindingAdapter("imageUrl")
-fun loadImage(view: ImageView, url: String?) {
-    if (!url.isNullOrEmpty()) {
-        Glide.with(view.context).load(url).into(view)
-    }
 }
