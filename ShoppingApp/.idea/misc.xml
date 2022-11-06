@@ -56,6 +56,7 @@
         <entry key="app/src/main/res/drawable/bg_onboarding_view_pager.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/bg_product_gradient.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/bg_reduce_button.xml" value="0.178" />
+        <entry key="app/src/main/res/drawable/bg_signout_button.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/ic_arrow_left.xml" value="0.178" />
         <entry key="app/src/main/res/drawable/ic_basket.xml" value="0.275" />
         <entry key="app/src/main/res/drawable/ic_close.xml" value="0.268" />
