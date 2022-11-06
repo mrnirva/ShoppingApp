@@ -89,8 +89,8 @@
 
                 <TextView
                     android:id="@+id/tvIncrease"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:text="@string/increase_char"
                     android:textColor="@color/white"
                     android:textStyle="bold"
@@ -102,20 +102,19 @@
 
                 <TextView
                     android:id="@+id/tvPiece"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:layout_gravity="center"
                     android:text="@{dataHolder.piece.toString()}"
                     android:textColor="@color/main_color"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:layout_marginVertical="5dp"/>
 
                 <TextView
                     android:id="@+id/tvReduce"
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:text="@string/reduce_char"
                     android:textColor="@color/white"
                     android:textStyle="bold"
