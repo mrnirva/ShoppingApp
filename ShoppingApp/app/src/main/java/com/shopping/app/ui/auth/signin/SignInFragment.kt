@@ -1,13 +1,9 @@
 package com.shopping.app.ui.auth.signin
 
 import android.os.Bundle
-import android.service.autofill.UserData
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
-import androidx.core.text.isDigitsOnly
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -16,9 +12,13 @@ import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
 import com.shopping.app.data.preference.UserPref
+import com.shopping.app.data.repository.auth.AuthRepositoryImpl
+import com.shopping.app.data.repository.user.UserRepositoryImpl
 import com.shopping.app.databinding.FragmentSignInBinding
 import com.shopping.app.ui.auth.signin.viewmodel.SignInViewModel
+import com.shopping.app.ui.auth.signin.viewmodel.SignInViewModelFactory
 import com.shopping.app.ui.loadingprogress.LoadingProgressBar
+import com.shopping.app.utils.AlertMessageViewer.showAlertDialogMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,14 +27,21 @@ class SignInFragment : Fragment() {
 
     private lateinit var bnd: FragmentSignInBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
-    private val viewModel: SignInViewModel by viewModels()
+    private val viewModel: SignInViewModel by viewModels{
+        SignInViewModelFactory(
+            AuthRepositoryImpl(),
+            UserRepositoryImpl()
+        )
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_in, container, false)
-        init()
         return bnd.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
     }
 
     private fun init(){
@@ -65,7 +72,7 @@ class SignInFragment : Fragment() {
 
             is DataState.Error -> {
                 loadingProgressBar.cancel()
-                showAlertDialogMessage(it.message)
+                showAlertDialogMessage(requireContext(), it.message)
             }
 
         }
@@ -78,28 +85,11 @@ class SignInFragment : Fragment() {
         CoroutineScope(Dispatchers.Main).launch {
 
             userPref.setUsername(user.username!!)
-            userPref.setEmail(user.email)
-            userPref.setUid(user.uid!!)
+            userPref.setEmail(user.email!!)
 
             findNavController().navigate(R.id.action_authFragment_to_mainMenuFragment)
 
         }
-
-    }
-
-    private fun showAlertDialogMessage(message: String){
-
-        var newMessage = message
-        if(message.isDigitsOnly()){
-            newMessage = getString(message.toInt())
-        }
-
-        AlertDialog.Builder(requireContext())
-            .setMessage(newMessage)
-            .setPositiveButton(resources.getString(R.string.close)) { dialog, _ ->
-                dialog.cancel()
-            }
-            .show()
 
     }
 

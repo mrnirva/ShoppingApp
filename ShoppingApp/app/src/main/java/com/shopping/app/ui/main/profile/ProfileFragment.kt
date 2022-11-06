@@ -21,11 +21,9 @@ class ProfileFragment : Fragment() {
     private lateinit var bnd: FragmentProfileBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_profile, container, false)
         bnd.profileFragment = this
         return bnd.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -32,7 +32,8 @@
                 android:inputType="text"
                 android:hint="@string/username"
                 android:background="@drawable/bg_auth_text_field"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:autofillHints="username"/>
 
             <EditText
                 android:id="@+id/etEmail"
@@ -43,7 +44,8 @@
                 android:inputType="textEmailAddress"
                 android:hint="@string/email"
                 android:background="@drawable/bg_auth_text_field"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:autofillHints="emailAddress"/>
 
             <EditText
                 android:id="@+id/etPassword"
@@ -54,7 +56,8 @@
                 android:inputType="textPassword"
                 android:hint="@string/password"
                 android:background="@drawable/bg_auth_text_field"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:autofillHints="password"/>
 
             <EditText
                 android:id="@+id/etPasswordAgain"
@@ -65,7 +68,8 @@
                 android:inputType="textPassword"
                 android:hint="@string/password_again"
                 android:background="@drawable/bg_auth_text_field"
-                android:layout_marginTop="10dp"/>
+                android:layout_marginTop="10dp"
+                android:autofillHints="password"/>
 
             <Button
                 android:id="@+id/btnSignUp"

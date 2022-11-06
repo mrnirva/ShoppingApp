@@ -4,11 +4,11 @@ import android.text.TextUtils
 import android.util.Patterns
 
 data class User(
-    var email: String,
-    var password: String,
-    var passwordAgain: String? = null,
-    var username: String? = null,
-    var uid: String? = null
+    var email: String? = "",
+    var password: String? = "",
+    var passwordAgain: String? = "",
+    var username: String? = "",
+    var uid: String? = ""
 ) {
 
     fun isSignInFieldEmpty() : Boolean{
@@ -20,11 +20,11 @@ data class User(
     }
 
     fun isValidEmail() : Boolean{
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return Patterns.EMAIL_ADDRESS.matcher(email!!).matches()
     }
 
     fun isPasswordGreaterThan5() : Boolean{
-        return password.length > 5
+        return password!!.length > 5
     }
 
     fun isPasswordMatch() : Boolean{

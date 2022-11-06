@@ -26,23 +26,10 @@ class BasketFragment : BottomSheetDialogFragment(), ProductPieceUpdateListener {
 
     private lateinit var bnd: FragmentBasketBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
-    private val viewModel by viewModels<BasketViewModel>() {
+    private val viewModel by viewModels<BasketViewModel> {
         BasketViewModelFactory(
             BasketRepositoryImpl()
         )
-    }
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
-        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
-        bnd.basketFragment = this
-        return bnd.root
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        init()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,8 +37,19 @@ class BasketFragment : BottomSheetDialogFragment(), ProductPieceUpdateListener {
         setStyle(DialogFragment.STYLE_NO_FRAME,R.style.AppBottomSheetDialogTheme)
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_basket, container, false)
+        return bnd.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+    }
+
     private fun init() {
 
+        bnd.basketFragment = this
         loadingProgressBar = LoadingProgressBar(requireContext())
 
         viewModel.basketLiveData.observe(viewLifecycleOwner) {
@@ -87,6 +85,7 @@ class BasketFragment : BottomSheetDialogFragment(), ProductPieceUpdateListener {
             }
 
         }
+
 
         viewModel.basketTotalLiveData.observe(viewLifecycleOwner) {
             bnd.total = it

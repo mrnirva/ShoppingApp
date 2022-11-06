@@ -14,10 +14,8 @@ class UserPref(var context: Context) {
 
     companion object{
         val Context.ds : DataStore<Preferences> by preferencesDataStore(Constants.DATA_STORE_USER)
-
         val KEY_USERNAME = stringPreferencesKey("USERNAME")
         val KEY_EMAIL = stringPreferencesKey("EMAIL")
-        val KEY_UID = stringPreferencesKey("UID")
         val KEY_IS_FIRST_USAGE = booleanPreferencesKey("IS_FIRST_USAGE")
     }
 
@@ -41,17 +39,6 @@ class UserPref(var context: Context) {
     suspend fun getEmail():String{
         val p = context.ds.data.first()
         return p[KEY_EMAIL] ?: ""
-    }
-
-    suspend fun setUid(uid:String){
-        context.ds.edit {
-            it[KEY_UID] = uid
-        }
-    }
-
-    suspend fun getUid():String{
-        val p = context.ds.data.first()
-        return p[KEY_UID] ?: ""
     }
 
     suspend fun setFirstUsage(value:Boolean){

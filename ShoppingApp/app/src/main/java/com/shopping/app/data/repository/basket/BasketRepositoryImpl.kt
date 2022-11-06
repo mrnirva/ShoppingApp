@@ -8,32 +8,32 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.shopping.app.data.model.ProductBasket
 import com.shopping.app.utils.Constants
-import com.shopping.app.utils.Constants.FIRESTORE_PRODUCTS_TABLE_PIECE_FIELD
+import com.shopping.app.utils.Constants.DATABASE_PRODUCTS_TABLE_PIECE_FIELD
 
 class BasketRepositoryImpl : BasketRepository {
 
     override fun getAllProductsBasket(): CollectionReference {
 
-        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+        return Firebase.firestore.collection(Constants.DATABASE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
-            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .collection(Constants.DATABASE_PRODUCTS_TABLE)
 
     }
 
     override fun getTargetProductsBasket(productBasket: ProductBasket): DocumentReference {
 
-        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+        return Firebase.firestore.collection(Constants.DATABASE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
-            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .collection(Constants.DATABASE_PRODUCTS_TABLE)
             .document(productBasket.id.toString())
 
     }
 
     override fun addProductsToBasket(productBasket: ProductBasket): Task<Void> {
 
-        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+        return Firebase.firestore.collection(Constants.DATABASE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
-            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .collection(Constants.DATABASE_PRODUCTS_TABLE)
             .document(productBasket.id.toString())
             .set(productBasket)
 
@@ -41,9 +41,9 @@ class BasketRepositoryImpl : BasketRepository {
 
     override fun deleteProducts(productBasket: ProductBasket): Task<Void> {
 
-        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+        return Firebase.firestore.collection(Constants.DATABASE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
-            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .collection(Constants.DATABASE_PRODUCTS_TABLE)
             .document(productBasket.id.toString())
             .delete()
 
@@ -51,11 +51,11 @@ class BasketRepositoryImpl : BasketRepository {
 
     override fun updateProductsPiece(productBasket: ProductBasket): Task<Void> {
 
-        return Firebase.firestore.collection(Constants.FIRESTORE_BASKET_TABLE)
+        return Firebase.firestore.collection(Constants.DATABASE_BASKET_TABLE)
             .document(FirebaseAuth.getInstance().uid!!)
-            .collection(Constants.FIRESTORE_PRODUCTS_TABLE)
+            .collection(Constants.DATABASE_PRODUCTS_TABLE)
             .document(productBasket.id.toString())
-            .update(FIRESTORE_PRODUCTS_TABLE_PIECE_FIELD, productBasket.piece)
+            .update(DATABASE_PRODUCTS_TABLE_PIECE_FIELD, productBasket.piece)
 
     }
 

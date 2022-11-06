@@ -27,7 +27,7 @@ class SearchFragment : Fragment(), CategoryClickListener, SearchView.OnQueryText
 
     private lateinit var bnd: FragmentSearchBinding
     private lateinit var loadingProgressBar: LoadingProgressBar
-    private val viewModel by viewModels<SearchViewModel>() {
+    private val viewModel by viewModels<SearchViewModel> {
         SearchViewModelFactory(
             SearchRepositoryImpl(
                 ApiClient.getApiService()
@@ -36,10 +36,8 @@ class SearchFragment : Fragment(), CategoryClickListener, SearchView.OnQueryText
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
         return bnd.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

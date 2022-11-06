@@ -32,11 +32,13 @@ class SplashFragment : Fragment() {
     private lateinit var bnd: FragmentSplashBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_splash, container, false)
-        init()
-
         return bnd.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
     }
 
     private fun init(){

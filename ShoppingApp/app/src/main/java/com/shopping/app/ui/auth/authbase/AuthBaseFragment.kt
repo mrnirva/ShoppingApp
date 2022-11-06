@@ -19,10 +19,8 @@ class AuthBaseFragment : Fragment() {
     private val viewModel: AuthBaseViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_auth_base, container, false)
         return bnd.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

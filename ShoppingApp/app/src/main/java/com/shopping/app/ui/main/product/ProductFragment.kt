@@ -24,7 +24,7 @@ class ProductFragment : Fragment() {
     private lateinit var bnd: FragmentProductBinding
     private lateinit var productAdapter: ProductAdapter
     private lateinit var loadingProgressBar: LoadingProgressBar
-    private val viewModel by viewModels<ProductViewModel>() {
+    private val viewModel by viewModels<ProductViewModel> {
         ProductViewModelFactory(
             ProductRepositoryImpl(
                 ApiClient.getApiService()
@@ -34,10 +34,8 @@ class ProductFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_product, container, false)
         return bnd.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

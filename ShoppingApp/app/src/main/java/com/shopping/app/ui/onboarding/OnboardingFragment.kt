@@ -13,7 +13,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.google.firebase.auth.FirebaseAuth
 import com.shopping.app.R
 import com.shopping.app.data.preference.UserPref
 import com.shopping.app.databinding.FragmentOnboardingBinding
@@ -21,7 +20,6 @@ import com.shopping.app.ui.onboarding.adapter.OnboardAdapter
 import com.shopping.app.ui.onboarding.viewmodel.OnboardViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class OnboardingFragment : Fragment(), OnboardButtonListener {
@@ -33,15 +31,18 @@ class OnboardingFragment : Fragment(), OnboardButtonListener {
     private lateinit var pageChangeListener: ViewPager2.OnPageChangeCallback
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-
         bnd = DataBindingUtil.inflate(inflater, R.layout.fragment_onboarding, container, false)
-        bnd.onboardingFragment = this
-        init()
-
         return bnd.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
+    }
+
     private fun init(){
+
+        bnd.onboardingFragment = this
 
         viewModel.boardingLiveData.observe(viewLifecycleOwner){
             it.let {

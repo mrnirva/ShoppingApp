@@ -2,15 +2,16 @@ package com.shopping.app.ui.auth.signin.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.shopping.app.R
 import com.shopping.app.data.model.DataState
 import com.shopping.app.data.model.User
-import com.shopping.app.utils.Constants
+import com.shopping.app.data.repository.auth.AuthRepository
+import com.shopping.app.data.repository.user.UserRepository
 
-class SignInViewModel : ViewModel() {
+class SignInViewModel(
+    private val authRepository: AuthRepository,
+    private val userRepository: UserRepository
+    ) : ViewModel() {
 
     val userLiveData = MutableLiveData<DataState<User>>()
 
@@ -45,7 +46,7 @@ class SignInViewModel : ViewModel() {
 
     private fun signIn(user: User){
 
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(user.email, user.password).addOnCompleteListener { task ->
+        authRepository.signIn(user).addOnCompleteListener { task ->
 
             if(task.isSuccessful) {
 
@@ -53,9 +54,7 @@ class SignInViewModel : ViewModel() {
                 getUserFirestore(user)
 
             }else {
-
                 userLiveData.value = DataState.Error(task.exception?.message!!)
-
             }
 
         }
@@ -64,30 +63,18 @@ class SignInViewModel : ViewModel() {
 
     private fun getUserFirestore(user: User){
 
-        val db = Firebase.firestore
+        userRepository.getUserData(user).addSnapshotListener { value, error ->
 
-        db.collection(Constants.FIRESTORE_USERS_TABLE)
-            .document(user.uid!!)
-            .addSnapshotListener { value, error ->
+            if(error == null){
 
-                if(error == null){
+                user.username = value?.toObject(User::class.java)?.username
+                userLiveData.value = DataState.Success(user)
 
-                    for((k,v) in value?.data!!.iterator()){
-
-                        if(k.equals("username")){
-                            user.username = v.toString()
-                            break
-                        }
-
-                    }
-
-                    userLiveData.value = DataState.Success(user)
-
-                }else{
-                    userLiveData.value = DataState.Error(error.message!!)
-                }
-
+            }else{
+                userLiveData.value = DataState.Error(error.message!!)
             }
+
+        }
 
     }
 
