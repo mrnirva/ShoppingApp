@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dataHolder"
+            type="com.shopping.app.data.model.ProductBasket" />
+
+        <import type="androidx.core.content.ContextCompat"/>
+
+        <variable
+            name="productAdapter"
+            type="com.shopping.app.ui.basket.adapter.BasketProductsAdapter" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginHorizontal="20dp">
+
+            <ImageView
+                android:id="@+id/ivImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:adjustViewBounds="true"
+                app:imageUrl="@{dataHolder.image}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/llProductInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/ivImage"
+                app:layout_constraintEnd_toStartOf="@id/llPiece"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@{dataHolder.title}"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="start"
+                    android:maxLines="1"
+                    android:text="@{@string/currency_unit(dataHolder.price * dataHolder.piece)}"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPiece"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:id="@+id/tvIncrease"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text="@string/increase_char"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_arrow_back"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="@{v -> productAdapter.productPieceUpdateListener.increaseProduct(dataHolder)}"/>
+
+                <TextView
+                    android:id="@+id/tvPiece"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{dataHolder.piece.toString()}"
+                    android:textColor="@color/main_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginVertical="5dp"/>
+
+                <TextView
+                    android:id="@+id/tvReduce"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:text="@string/reduce_char"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="@drawable/bg_arrow_back"
+                    android:onClick="@{v -> productAdapter.productPieceUpdateListener.reduceProduct(dataHolder)}"/>
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

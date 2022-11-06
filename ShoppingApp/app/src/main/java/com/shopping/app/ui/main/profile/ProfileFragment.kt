@@ -7,12 +7,9 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.shopping.app.R
-import com.shopping.app.data.model.User
 import com.shopping.app.data.preference.UserPref
 import com.shopping.app.databinding.FragmentProfileBinding
 import kotlinx.coroutines.CoroutineScope
