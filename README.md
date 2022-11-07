@@ -25,7 +25,6 @@
 </p>
 
 ## Table of Contents
-
 * [Summary](#summary)
 * [Project Structure](#project-structure)
 * [Architecture](#architecture)
