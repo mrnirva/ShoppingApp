@@ -1,5 +1,6 @@
 # Shopping App
 
+![Android Studio](https://img.shields.io/badge/android-studio.svg)
 [![License](https://badgen.net/badge/License/Apache/blue/)](https://opensource.org/licenses/MIT)
 ![MinAPI](https://badgen.net/badge/MinAPI/21/)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.7.20-blue.svg?logo=kotlin)](http://kotlinlang.org)
