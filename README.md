@@ -35,14 +35,14 @@
 This is a simple shopping application. Developed using kotlin for android. It lists the products, shows the product details, has a search page, shows the products by category, you can add the products to the basket by quantity. Basket provides an opportunity to increase, decrease the number of products and see the total amount. This  application is coded in accordance with the single activity principle. Androidx and 3rd party libraries are used. It works with the [Fake Store API.](https://fakestoreapi.com/)
 
 ## Project Structure
-* Splash: It is the opening screen of the application.
-* Auth: This page provides options to sign-in and sign-up.
-* Main Menu: Includes Products, Search and Profile pages
-* Products: Lists products
-* Search: Allows you to search for products and sort by category
-* Profile: Shows your account information and provides a button to log out of your account.
-* Product Details: Shows product details, allows you to add the product to the basket
-* Basket: The products you add to the basket appear on this page. You can increase or decrease the number of products. It shows the total amount and provides a button for purchase.
+* <b>Splash:</b> It is the opening screen of the application.
+* <b>Auth:</b> This page provides options to sign-in and sign-up.
+* <b>Main Menu:</b> Includes Products, Search and Profile pages
+* <b>Products:</b> Lists products
+* <b>Search:</b> Allows you to search for products and sort by category
+* <b>Profile:</b> Shows your account information and provides a button to log out of your account.
+* <b>Product Details:</b> Shows product details, allows you to add the product to the basket
+* <b>Basket:</b> The products you add to the basket appear on this page. You can increase or decrease the number of products. It shows the total amount and provides a button for purchase.
 
 ## Architecture
 MVVM (Model-View-ViewModel) architecture pattern and data binding is used in the development of this application. Codes were written by following the Clean Architecture method.
